@@ -1,23 +1,43 @@
+using MicroOrm.Dapper.Repositories;
+using MicroOrm.Dapper.Repositories.SqlGenerator;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
+using OMNE.EFCore;
+
 namespace OMNE.Postgres;
 
 public static class PostgresSetup
 {
-    private const string Connection = "postgres";
-
-    public static void SetupPostgres(this IHostApplicationBuilder host, string connection = Connection)
+    public static void SetupPostgres(this IHostApplicationBuilder host)
     {
-        host.AddNpgsqlDbContext<PostgresContext>(connection, default, ConfigureContext);
-        host.Services.AddScoped<SqlContext>(static provider => provider.GetRequiredService<PostgresContext>());
+        // EF
+        host.Services.AddPooledDbContext<SqlContext, PostgresContext>(ConfigureContext);
+
+        // Dapper
+        host.Services.AddSingleton(typeof(ISqlGenerator<>), typeof(PostgresSqlGenerator<>));
+        host.Services.AddScoped(typeof(IDapperRepository<>), typeof(NpgsqlDapperRepository<>));
+        host.Services.AddScoped(typeof(IReadOnlyDapperRepository<>), typeof(NpgsqlReadOnlyDapperRepository<>));
     }
 
-    private static void ConfigureContext(this DbContextOptionsBuilder builder)
+    private static void ConfigureContext(IServiceProvider provider, DbContextOptionsBuilder builder)
     {
+        var connection = provider
+            .GetRequiredService<IConfiguration>()
+            .GetConnectionString("postgres") ?? throw new NpgsqlException("Unable to resolve connection string");
+
         builder
-            .UseNpgsql(ConfigurePostgres)
+            .UseNpgsql(connection, ConfigurePostgres)
             .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution)
             .UsePostgreSqlTriggers();
 
         EnableDebugLogs(builder);
+    }
+
+    private static void ConfigurePostgres(NpgsqlDbContextOptionsBuilder builder)
+    {
+        builder
+            .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
+            .EnableRetryOnFailure();
     }
 
     [Conditional("DEBUG")]
@@ -34,10 +54,5 @@ public static class PostgresSetup
         builder
             .AddDebug()
             .AddConsole();
-    }
-
-    private static void ConfigurePostgres(NpgsqlDbContextOptionsBuilder builder)
-    {
-        builder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
     }
 }

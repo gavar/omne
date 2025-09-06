@@ -7,11 +7,14 @@
 
   <!-- Local Dependencies -->
   <ItemGroup>
+    <ProjectReference Include="..\..\src\OMNE.Model\OMNE.Model.csproj" />
     <ProjectReference Include="..\..\src\OMNE.Postgres\OMNE.Postgres.csproj" />
   </ItemGroup>
 
   <!-- External Dependencies -->
   <ItemGroup>
+    <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="FastEndpoints.Swagger" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
   </ItemGroup>
 

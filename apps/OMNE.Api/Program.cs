@@ -1,4 +1,4 @@
-using OMNE.Data;
+using FastEndpoints.Swagger;
 using OMNE.Data.Services;
 using OMNE.Postgres;
 
@@ -11,22 +11,26 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 // Health
 builder.Services
     .AddHealthChecks()
-    .AddDbContextCheck<SqlContext>();
+    .AddDbContextCheck<PostgresContext>();
 
-// Persistence
-if (!builder.Environment.IsEnvironment("test"))
-{
-    // TODO: should migrate only via CI/CD
-    builder.Services.AddHostedService<DbInitializerService<PostgresContext>>();
-    builder.SetupPostgres();
-}
+// TODO: should migrate only via CI/CD
+builder.Services.AddHostedService<DbInitializerService<PostgresContext>>();
+builder.SetupPostgres();
+
+// Error Handling
+builder.Services.AddProblemDetails();
 
 // Endpoints
-builder.Services.AddProblemDetails();
+builder.Services
+    .AddFastEndpoints()
+    .SwaggerDocument();
 
 var app = builder.Build();
 
 // Middleware
 app.UseHealthChecks("/health");
+
+// Endpoints
+app.UseFastEndpoints().UseSwaggerGen();
 
 app.Run();

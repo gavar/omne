@@ -2,11 +2,12 @@ using MicroOrm.Dapper.Repositories.Attributes;
 
 namespace OMNE.Data.Model;
 
-public class Entity
+[NotMapped]
+public abstract class Entity
 {
     [Key]
     [Identity]
-    [Column(TypeName = "bigint")]
+    [Column("id", TypeName = "bigint")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public ulong Id { get; set; }
+    public long Id { get; set; }
 }

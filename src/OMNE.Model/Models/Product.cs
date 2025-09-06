@@ -1,13 +1,20 @@
-namespace OMNE.Data.Model;
+using System.ComponentModel.DataAnnotations;
 
-[Table("product")]
-public class ProductEntity : Entity
+namespace OMNE.Model;
+
+public class Product : ProductProps, IResource
+{
+    /// <inheritdoc />
+    public ulong Id { get; set; }
+}
+
+/// <summary> Mutable properties of a <see cref="Product" />. </summary>
+public class ProductProps
 {
     /// <summary> Name of the product. </summary>
     /// <value>A non-empty string representing the product name.</value>
     [Required]
     [MinLength(1)]
-    [Column("name")]
     public string Name { get; set; } = default!;
 
     /// <summary> Price of the product. </summary>
@@ -16,11 +23,8 @@ public class ProductEntity : Entity
     /// The price is stored with high precision (12,3) allowing for values up to 999,999,999.999.
     /// The database storage typically requires 6 bytes for values with 9-12 digits of precision.
     /// </remarks>
-    [Precision(12, 3)]
-    [Column("price")]
     public decimal Price { get; set; }
 
     /// <summary> Optional description of the product. </summary>
-    [Column("description")]
     public string? Description { get; set; }
 }

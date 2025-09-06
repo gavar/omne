@@ -8,6 +8,7 @@ var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOpt
 var postgres = builder
     .AddPostgres("postgres")
     .WithImage("postgres:17.6")
+    .WithPassword(builder.AddParameter("psql-password", "root"))
     .WithContainerName("omne-psql")
     .WithDataVolume("omne-psql-data");
 

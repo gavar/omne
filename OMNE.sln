@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.Postgres", "src\OMNE.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.EFCore", "src\OMNE.EFCore\OMNE.EFCore.csproj", "{679CEC7B-304D-4DCA-9CA0-7054441EE954}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.Model", "src\OMNE.Model\OMNE.Model.csproj", "{1E17E040-B144-4018-B995-249203B9452D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{679CEC7B-304D-4DCA-9CA0-7054441EE954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{679CEC7B-304D-4DCA-9CA0-7054441EE954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{679CEC7B-304D-4DCA-9CA0-7054441EE954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E17E040-B144-4018-B995-249203B9452D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E17E040-B144-4018-B995-249203B9452D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E17E040-B144-4018-B995-249203B9452D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E17E040-B144-4018-B995-249203B9452D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
