@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Local Dependencies -->
+  <ItemGroup>
+    <ProjectReference Include="..\OMNE.Model\OMNE.Model.csproj" />
+  </ItemGroup>
+
+  <!-- External Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="RestSharp" />
+  </ItemGroup>
+</Project>

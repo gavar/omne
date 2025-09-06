@@ -7,26 +7,42 @@
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.2" />
     <PackageVersion Include="Aspire.Hosting.Azure.PostgreSQL" Version="9.4.2" />
     <PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.4.2" />
+    <PackageVersion Include="Aspire4Wasm.AppHost" Version="6.0.0" />
+    <PackageVersion Include="Aspire4Wasm.WebApi" Version="6.0.1" />
+    <PackageVersion Include="Aspire4Wasm.WebAssembly" Version="6.0.1" />
+    <PackageVersion Include="FastEndpoints" Version="7.0.1" />
     <PackageVersion Include="FastEndpoints.Swagger" Version="7.0.1" />
     <PackageVersion Include="FluentAssertions.Analyzers" Version="0.34.1" />
     <PackageVersion Include="Laraue.EfCoreTriggers.PostgreSql" Version="9.0.0" />
     <PackageVersion Include="Meziantou.Analyzer" Version="2.0.215" />
     <PackageVersion Include="MicroOrm.Dapper.Repositories" Version="1.29.3" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.2" />
+    <PackageVersion Include="Morris.Blazor.Validation" Version="3.1.5" />
+    <PackageVersion Include="MudBlazor" Version="8.12.0" />
     <PackageVersion Include="Npgsql" Version="9.0.3" />
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
+    <PackageVersion Include="RestSharp" Version="112.1.0" />
     <PackageVersion Include="Riok.Mapperly" Version="4.2.1" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Roslynator.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.14.0" />
     <PackageVersion Include="StyleCop.Analyzers.Unstable" Version="1.2.0.556" />
     <PackageVersion Include="xunit.analyzers" Version="1.24.0" />
-    <PackageVersion Include="FastEndpoints" Version="7.0.1" />
   </ItemGroup>
 </Project>

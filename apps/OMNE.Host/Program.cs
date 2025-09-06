@@ -1,3 +1,5 @@
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
 {
     Args = args,
@@ -16,9 +18,17 @@ var postgres = builder
 var db = postgres.AddDatabase("omne-dev");
 
 // API
-builder
-    .AddProject<Projects.OMNE_Api>("api")
+var api = builder
+    .AddProject<OMNE_Api>("api")
     .WithReference(db, connectionName: "postgres")
+    .WithHttpEndpoint(5001)
     .WaitFor(db);
+
+// WASM
+var web = builder
+    .AddStandaloneBlazorWebAssemblyProject<OMNE_Web>("web")
+    .WithReference(api);
+
+api.WithReference(web);
 
 builder.Build().Run();

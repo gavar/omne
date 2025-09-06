@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject OmneClient OmneClient
+
+<BlazePage Title="Dashboard">
+  <MudGrid>
+    <MudItem xs="12" sm="6" lg="3">
+      <BlazeSummary Content="@products.Count.ToString("N0")"
+                    Description="Products"
+                    DisplayColor="--mud-palette-primary"
+                    Icon="@Icons.Material.Rounded.Widgets" />
+    </MudItem>
+  </MudGrid>
+</BlazePage>
+
+@code {
+  private List<Product> products = [];
+
+  /// <inheritdoc />
+  protected override async Task OnInitializedAsync() {
+    products = await OmneClient.Products.List();
+  }
+}

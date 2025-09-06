@@ -8,12 +8,14 @@
   <!-- Local Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\OMNE.Api\OMNE.Api.csproj" />
+    <ProjectReference Include="..\OMNE.Web\OMNE.Web.csproj" />
   </ItemGroup>
 
   <!-- External Dependencies -->
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
     <PackageReference Include="Aspire.Hosting.Azure.PostgreSQL" />
+    <PackageReference Include="Aspire4Wasm.AppHost" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 </Project>

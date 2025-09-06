@@ -1,6 +1,7 @@
 using FastEndpoints.Swagger;
 using OMNE.Data.Services;
 using OMNE.Postgres;
+using OMNE.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -8,14 +9,29 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     ContentRootPath = AppContext.BaseDirectory,
 });
 
+// Aspire
+builder.AddServiceDefaults();
+
 // Health
 builder.Services
     .AddHealthChecks()
     .AddDbContextCheck<PostgresContext>();
 
+// Persistence
 // TODO: should migrate only via CI/CD
 builder.Services.AddHostedService<DbInitializerService<PostgresContext>>();
 builder.SetupPostgres();
+
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyMethod();
+        policy.WithHeaders("X-Requested-With");
+        policy.WithOrigins(builder.Configuration.GetServiceEndpoints("web"));
+    });
+});
 
 // Error Handling
 builder.Services.AddProblemDetails();
@@ -28,7 +44,9 @@ builder.Services
 var app = builder.Build();
 
 // Middleware
+app.UseHttpsRedirection();
 app.UseHealthChecks("/health");
+app.UseCors();
 
 // Endpoints
 app.UseFastEndpoints().UseSwaggerGen();

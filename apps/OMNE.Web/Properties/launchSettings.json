@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "Development": {
+      "hotReloadEnabled": false,
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:6001;http://localhost:6002",
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
+    },
+    "Watch": {
+      "hotReloadEnabled": false,
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "workingDirectory": "$(ProjectDir)",
+      "commandLineArgs": "watch --no-hot-reload --property:DotNetWatchBuild=true",
+      "applicationUrl": "https://localhost:6001;http://localhost:6002",
+      "environmentVariables": {
+        "DOTNET_WATCH_RESTART_ON_RUDE_EDIT": "true",
+        "DOTNET_WATCH_SUPPRESS_STATIC_FILE_HANDLING": "true"
+      }
+    }
+  }
+}

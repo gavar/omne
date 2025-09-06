@@ -1,11 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using Riok.Mapperly.Abstractions;
 
 namespace OMNE.Model;
 
-public class Product : ProductProps, IResource
+[Mapper(UseReferenceHandling = false, IncludedMembers = MemberVisibility.Public)]
+public partial class Product : ProductProps, IResource
 {
     /// <inheritdoc />
     public ulong Id { get; set; }
+
+    /// <summary> Map properties from source to target. </summary>
+    public static partial void Map(Product source, Product target);
 }
 
 /// <summary> Mutable properties of a <see cref="Product" />. </summary>
