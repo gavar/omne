@@ -43,7 +43,7 @@
 
   <!-- Workspace Dependencies -->
   <ItemGroup Condition="$(AssemblyName) != 'OMNE.Workspace'">
-    <ProjectReference Include="$(MSBuildThisFileDirectory)src\OMNE.Workspace\OMNE.Workspace.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)src\OMNE.Workspace\OMNE.Workspace.csproj" ReferenceOutputAssembly="false" IsAspireProjectResource="false" />
   </ItemGroup>
 
   <!-- Code Analyzers -->

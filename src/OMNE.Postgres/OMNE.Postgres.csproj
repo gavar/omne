@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Local Dependencies -->
+  <ItemGroup>
+    <ProjectReference Include="..\OMNE.Data\OMNE.Data.csproj" />
+    <ProjectReference Include="..\OMNE.EFCore\OMNE.EFCore.csproj" />
+  </ItemGroup>
+
+  <!-- External Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Laraue.EfCoreTriggers.PostgreSql" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+  </ItemGroup>
+</Project>
