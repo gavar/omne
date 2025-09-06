@@ -1,0 +1,65 @@
+# exclude everything
+*/*
+
+# include directories
+!.config/*
+!apps/*
+!packages/*
+!src/*
+!test/*
+
+# exclude directories
+.parcel-cache/
+bin/
+dist/
+obj/
+out/
+wwwroot/
+
+# exclude file types
+*-lock.yaml
+*.DotSettings.user
+*.bicep
+*.cs
+*.csv
+*.dockerfile
+*.g.*
+*.ico
+*.jpg
+*.map
+*.png
+*.razor
+*.sln
+*.sql
+*.txt
+*.webp
+
+# exclude files
+.editorconfig
+.gitignore
+
+# include files
+!.husky/*.json
+!nuget.config
+
+# include file types
+!*.DotSettings
+!*.csproj
+!*.css
+!*.js
+!*.mergesettings
+!*.props
+!*.resx
+!*.ruleset
+!*.scss
+!*.targets
+!*.ts
+!*.xml
+!*rc
+!.*rc
+
+# exclude comments
+\#*
+
+# exclude snapshots
+*.verified.*

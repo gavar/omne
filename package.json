@@ -1,0 +1,26 @@
+{
+  "name": "omne",
+  "private": true,
+  "version": "0.0.0",
+  "keywords": [],
+  "author": "Max Stankevich",
+  "scripts": {
+    "format": "run-p -r format:**",
+    "format:dotnet": "dotnet format --severity warn",
+    "format:prettier": "prettier ** --write"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.2",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "prettier-plugin-properties": "^0.3.0",
+    "prettier-plugin-sh": "^0.18.0",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.13",
+    "tsc-files": "^1.1.4",
+    "typescript-eslint": "^8.42.0"
+  }
+}

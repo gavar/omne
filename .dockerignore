@@ -1,0 +1,28 @@
+### Docker ###
+*.dockerfile
+docker-compose.yml
+
+### GIT ###
+.git
+**/.gitignore
+**/.gitattributes
+
+### IDE ###
+**/.DotSettings*
+**/.idea
+**/.vscode
+**/launchSettings.json
+
+### .NET ###
+**/obj
+**/bin
+
+### NodeJS ###
+**/node_modules
+
+### Tools ###
+.nuke
+.husky
+
+### OTHER ###
+**#*

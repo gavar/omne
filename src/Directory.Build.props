@@ -1,0 +1,9 @@
+<Project>
+  <!-- Commons -->
+  <Import Project="..\Directory.Build.props" />
+
+  <!-- Configuration -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).Tests" />
+  </ItemGroup>
+</Project>
