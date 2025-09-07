@@ -8,6 +8,6 @@ public class ProductListEndpoint(IReadOnlyDapperRepository<ProductEntity> reposi
     public override async Task HandleAsync(CancellationToken ct)
     {
         var list = await repository.FindAllAsync(ct);
-        await Send.OkAsync(list.ToProductList(), ct);
+        await Send.OkAsync(list.OrderBy(x => x.Id).ToProductList(), ct);
     }
 }

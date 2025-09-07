@@ -50,10 +50,10 @@ internal class Request<T>(IRestClient client) : Request(client), IRequest<T>
         => Send<T>(this, cancellation);
 }
 
-internal class Request<TForm, TReply>(IRestClient client) : Request(client), IRequest<TReply>
+internal class Request<TBody, TReply>(IRestClient client) : Request(client), IRequest<TReply> where TBody : class
 {
     /// <inheritdoc cref="RestRequestExtensions.AddBody" />
-    public object Body { init => this.AddJsonBody(value); }
+    public TBody Body { init => this.AddJsonBody(Payload.Create(value)); }
 
     /// <inheritdoc />
     public new Task<TReply> Send(CancellationToken cancellation = default)

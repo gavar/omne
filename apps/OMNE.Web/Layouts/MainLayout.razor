@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@Theme" IsDarkMode="dark" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+  <MudAppBar Elevation="1">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+    <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+    <MudSpacer />
+    <MudIconButton Icon="@(ThemeIcon)" Color="Color.Inherit" OnClick="@ToggleDark" />
+  </MudAppBar>
+  <MudDrawer @bind-Open="open" ClipMode="DrawerClipMode.Always" Elevation="2">
+    <NavMenu />
+  </MudDrawer>
+  <MudMainContent Class="pt-16 pa-4">
+    @Body
+  </MudMainContent>
+</MudLayout>
+
+
+<div id="blazor-error-ui" data-nosnippet>
+  An unhandled error has occurred.
+  <a href="." class="reload">Reload</a>
+  <span class="dismiss">🗙</span>
+</div>
+
+@code {
+  private static readonly MudTheme Theme = new();
+
+  private bool dark;
+  private bool open = true;
+
+  private string ThemeIcon => dark switch {
+    true => Icons.Material.Rounded.AutoMode,
+    false => Icons.Material.Outlined.DarkMode,
+  };
+
+  private void ToggleDark() => dark = !dark;
+  private void ToggleDrawer() => open = !open;
+}

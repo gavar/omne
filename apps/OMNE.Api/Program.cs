@@ -27,8 +27,8 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyMethod();
-        policy.WithHeaders("X-Requested-With");
+        policy.AllowAnyHeader();
+        policy.WithMethods("OPTIONS", "GET", "PUT", "POST", "DELETE");
         policy.WithOrigins(builder.Configuration.GetServiceEndpoints("web"));
     });
 });

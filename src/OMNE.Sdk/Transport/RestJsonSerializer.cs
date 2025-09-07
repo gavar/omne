@@ -44,6 +44,7 @@ internal class RestJsonSerializer : IRestSerializer, ISerializer, IDeserializer
     public string? Serialize(object? obj) => obj switch
     {
         null => null,
+        Payload payload => JsonSerializer.Serialize(payload.Value, payload.Type, Options),
         _ => JsonSerializer.Serialize(obj, Options),
     };
 

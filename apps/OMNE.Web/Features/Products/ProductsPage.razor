@@ -1,0 +1,36 @@
+@page "/"
+@inject OmneClient OmneClient
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<PageTitle>Products</PageTitle>
+
+<MudItem xs="12" class="mt-4">
+  <ProductList Products="products" />
+</MudItem>
+
+<MudFab Color="Color.Primary"
+        StartIcon="@Icons.Material.Filled.Add"
+        Class="fixed right-8 bottom-8"
+        OnClick="@Create" />
+
+@code {
+  private List<Product> products = [];
+
+  /// <inheritdoc />
+  protected override async Task OnInitializedAsync() {
+    try {
+      products = await OmneClient.Products.List();
+    }
+    catch (Exception ex) {
+      Console.Error.WriteLine(ex);
+      Snackbar.Add("Error loading products!", Severity.Error);
+    }
+  }
+
+  private async Task Create() {
+    var dialog = await DialogService.ShowAsync<ProductDialog>("Add Product");
+    var product = await dialog.GetReturnValueAsync<Product>();
+    if (product != null) products.Add(product);
+  }
+}

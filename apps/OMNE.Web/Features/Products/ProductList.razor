@@ -1,0 +1,72 @@
+@inject OmneClient OmneClient
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+
+<MudTable T="Product" Items="@Products" Hover FixedHeader SortLabel="Sort By" Breakpoint="Breakpoint.Sm">
+  <HeaderContent>
+    <MudTh>
+      <MudTableSortLabel T="Product" SortBy="@(x => x.Id)">ID</MudTableSortLabel>
+    </MudTh>
+    <MudTh>
+      <MudTableSortLabel T="Product" SortBy="@(x => x.Name)">Name</MudTableSortLabel>
+    </MudTh>
+    <MudTh>
+      <MudTableSortLabel T="Product" SortBy="@(x => x.Price)">Price</MudTableSortLabel>
+    </MudTh>
+    <MudTh>Description</MudTh>
+    <MudTh>Actions</MudTh>
+  </HeaderContent>
+  <RowTemplate>
+    <MudTd DataLabel="ID">@context.Id</MudTd>
+    <MudTd DataLabel="Name">@context.Name</MudTd>
+    <MudTd DataLabel="Price">@context.Price.ToString("C")</MudTd>
+    <MudTd DataLabel="Description">@context.Description</MudTd>
+    <MudTd DataLabel="Actions">
+      <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small"
+                 StartIcon="@Icons.Material.Filled.Edit"
+                 OnClick="@(_ => Edit(context))"
+                 Class="mr-2">
+        Edit
+      </MudButton>
+      <MudButton Variant="Variant.Filled" Color="Color.Error" Size="Size.Small"
+                 StartIcon="@Icons.Material.Filled.Delete"
+                 OnClick="@(_ => Delete(context))">
+        Delete
+      </MudButton>
+    </MudTd>
+  </RowTemplate>
+  <PagerContent>
+    <MudTablePager />
+  </PagerContent>
+</MudTable>
+
+@code {
+  [Parameter]
+  public List<Product> Products { get; set; } = [];
+
+  private async Task Edit(Product product) {
+    var parameters = new DialogParameters { { nameof(ProductDialog.Product), product } };
+    var dialog = await DialogService.ShowAsync<ProductDialog>("Edit Product", parameters);
+    await dialog.Result;
+  }
+
+  private async Task Delete(Product product) {
+    var result = await DialogService.ShowMessageBox(new() {
+      Title = "Delete Product",
+      Message = $"Are you sure you want to delete '{product.Name}'? This action cannot be undone.",
+      YesText = "Delete",
+      CancelText = "Cancel",
+    });
+
+    if (result == true) {
+      try {
+        await OmneClient.Products.Delete(product.Id);
+        Products.Remove(product);
+        Snackbar.Add($"Product '{product.Name}' deleted successfully.", Severity.Success);
+      }
+      catch (Exception ex) {
+        Snackbar.Add($"Error deleting product: {ex.Message}", Severity.Error);
+      }
+    }
+  }
+}

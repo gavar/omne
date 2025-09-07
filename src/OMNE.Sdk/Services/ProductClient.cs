@@ -19,6 +19,7 @@ public class ProductClient(IRestClient client)
 
     public IRequest<Product> Create(ProductProps form, CancellationToken cancellation = default) => new Request<ProductProps, Product>(client)
     {
+        Method = Method.Post,
         Resource = "/products",
         Cancellation = cancellation,
         Body = form,
@@ -29,6 +30,7 @@ public class ProductClient(IRestClient client)
 
     public IRequest<Product> Update(ulong id, ProductProps form, CancellationToken cancellation = default) => new Request<ProductProps, Product>(client)
     {
+        Method = Method.Put,
         Resource = $"/products/{id}",
         Cancellation = cancellation,
         Body = form,
@@ -36,6 +38,7 @@ public class ProductClient(IRestClient client)
 
     public Task Delete(ulong id, CancellationToken cancellation = default) => new Request(client)
     {
+        Method = Method.Delete,
         Resource = $"/products/{id}",
     }.Send(cancellation);
 }
