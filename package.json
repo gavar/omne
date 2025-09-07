@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "keywords": [],
   "author": "Max Stankevich",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
   "scripts": {
     "format": "run-p -r format:**",
     "format:dotnet": "dotnet format --severity warn",
