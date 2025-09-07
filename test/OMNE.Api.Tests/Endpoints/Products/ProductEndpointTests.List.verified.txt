@@ -1,0 +1,22 @@
+﻿{
+  Status: 200 OK,
+  Content: {
+    Headers: {
+      Content-Type: application/json; charset=utf-8
+    },
+    Value: [
+      {
+        id: 1,
+        name: Test Product 1,
+        price: 99.99,
+        description: Test product description 1
+      },
+      {
+        id: 2,
+        name: Test Product 2,
+        price: 199.99,
+        description: Test product description 2
+      }
+    ]
+  }
+}

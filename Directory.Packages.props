@@ -12,6 +12,7 @@
     <PackageVersion Include="Aspire4Wasm.WebAssembly" Version="6.0.1" />
     <PackageVersion Include="FastEndpoints" Version="7.0.1" />
     <PackageVersion Include="FastEndpoints.Swagger" Version="7.0.1" />
+    <PackageVersion Include="FluentAssertions" Version="7.1.0" />
     <PackageVersion Include="FluentAssertions.Analyzers" Version="0.34.1" />
     <PackageVersion Include="Laraue.EfCoreTriggers.PostgreSql" Version="9.0.0" />
     <PackageVersion Include="Meziantou.Analyzer" Version="2.0.215" />
@@ -19,6 +20,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.8" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="9.0.8" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
@@ -28,6 +30,7 @@
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="Morris.Blazor.Validation" Version="3.1.5" />
     <PackageVersion Include="MudBlazor" Version="8.12.0" />
     <PackageVersion Include="Npgsql" Version="9.0.3" />
@@ -43,6 +46,15 @@
     <PackageVersion Include="Roslynator.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.14.0" />
     <PackageVersion Include="StyleCop.Analyzers.Unstable" Version="1.2.0.556" />
+    <PackageVersion Include="Testcontainers" Version="4.1.0" />
+    <PackageVersion Include="Testcontainers.PostgreSql" Version="4.7.0" />
+    <PackageVersion Include="Testcontainers.XunitV3" Version="4.7.0" />
+    <PackageVersion Include="Verify.Http" Version="7.0.0" />
+    <PackageVersion Include="Verify.XunitV3" Version="28.12.0" />
     <PackageVersion Include="xunit.analyzers" Version="1.24.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageVersion Include="xunit.v3" Version="3.0.1" />
+    <PackageVersion Include="xunit.v3.assert" Version="3.0.1" />
+    <PackageVersion Include="xunit.v3.runner.console" Version="3.0.1" />
   </ItemGroup>
 </Project>

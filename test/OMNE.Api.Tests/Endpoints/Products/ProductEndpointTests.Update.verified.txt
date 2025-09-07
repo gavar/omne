@@ -1,0 +1,14 @@
+﻿{
+  Status: 200 OK,
+  Content: {
+    Headers: {
+      Content-Type: application/json; charset=utf-8
+    },
+    Value: {
+      id: 1,
+      name: Updated Product,
+      price: 199.99,
+      description: Updated product description
+    }
+  }
+}

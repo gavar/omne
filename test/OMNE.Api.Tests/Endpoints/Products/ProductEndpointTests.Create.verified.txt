@@ -1,0 +1,17 @@
+﻿{
+  Status: 201 Created,
+  Headers: {
+    Location: /products/1
+  },
+  Content: {
+    Headers: {
+      Content-Type: application/json; charset=utf-8
+    },
+    Value: {
+      id: 1,
+      name: Test Product,
+      price: 99.99,
+      description: Test product description
+    }
+  }
+}

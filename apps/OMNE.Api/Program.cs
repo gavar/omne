@@ -49,6 +49,7 @@ app.UseHealthChecks("/health");
 app.UseCors();
 
 // Endpoints
-app.UseFastEndpoints().UseSwaggerGen();
+app.UseFastEndpoints(x => x.Validation.EnableDataAnnotationsSupport = true)
+    .UseSwaggerGen();
 
 app.Run();

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.Web", "apps\OMNE.Web\O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.ServiceDefaults", "src\OMNE.ServiceDefaults\OMNE.ServiceDefaults.csproj", "{F4453B33-7F33-42A2-B7E9-EB9D9033F362}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMNE.Api.Tests", "test\OMNE.Api.Tests\OMNE.Api.Tests.csproj", "{F1EC9478-99A6-454E-8597-DD7919B5ED16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{F4453B33-7F33-42A2-B7E9-EB9D9033F362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4453B33-7F33-42A2-B7E9-EB9D9033F362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4453B33-7F33-42A2-B7E9-EB9D9033F362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1EC9478-99A6-454E-8597-DD7919B5ED16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1EC9478-99A6-454E-8597-DD7919B5ED16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1EC9478-99A6-454E-8597-DD7919B5ED16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1EC9478-99A6-454E-8597-DD7919B5ED16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

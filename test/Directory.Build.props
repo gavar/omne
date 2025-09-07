@@ -1,0 +1,17 @@
+<Project>
+  <!-- Commons -->
+  <Import Project="..\Directory.Build.props" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!-- External Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.v3.assert" />
+    <PackageReference Include="xunit.v3.runner.console" />
+  </ItemGroup>
+</Project>

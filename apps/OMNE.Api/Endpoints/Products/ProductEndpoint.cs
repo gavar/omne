@@ -2,7 +2,7 @@ namespace OMNE.Api.Endpoints.Products;
 
 [AllowAnonymous]
 [HttpPost("/products")]
-public class ProductCreateEndpoint(IDapperRepository<ProductEntity> repository) : Endpoint<ProductProps, Product>
+public class ProductEndpoint(IDapperRepository<ProductEntity> repository) : Endpoint<ProductProps, Product>
 {
     /// <inheritdoc />
     public override async Task HandleAsync(ProductProps req, CancellationToken ct)

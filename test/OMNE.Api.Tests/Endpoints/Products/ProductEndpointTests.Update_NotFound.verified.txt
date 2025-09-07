@@ -1,0 +1,15 @@
+﻿{
+  Version: 1.1,
+  Status: 404 Not Found,
+  RequestMessage: {
+    Method: PUT,
+    Uri: http://localhost/products/999999,
+    Content: {
+      Headers: {
+        Content-Length: 85,
+        Content-Type: application/json; charset=utf-8
+      },
+      Value: 
+    }
+  }
+}
